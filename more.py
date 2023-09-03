@@ -1,13 +1,9 @@
-from itertools import islice, chain, repeat, tee, starmap
+from itertools import islice, chain, repeat, starmap, tee
 from functools import partial
 from collections.abc import Sequence
 from collections import deque
 from time import monotonic
-from operator import sub, add
-
-l1 = (1, 2, 3)
-# l2 = 'sina7462'
-# l = {0: '0', 1: '1', 2: '2', 3: '3', 4: '4'}
+from operator import sub
 
 _marker = object()
 
@@ -45,10 +41,6 @@ class SequenceView(Sequence):
     
     def __repr__(self):
         return '{}({})'.format(self.__class__.__name__, self._target)
-
-
-
-
 
 
 def take(iterable, n):
@@ -236,11 +228,3 @@ def value_chain(*args):
             yield from value
         except TypeError:
             yield value
-
-
-# seq = SequenceView(l1)
-# print(seq)
-# print(len(seq))
-# print(seq[:2])
-
-
